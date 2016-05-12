@@ -1,0 +1,96 @@
+<!--
+ The MIT License (MIT)
+
+ Copyright (c) 2016 Brandon Sara (http://bsara.github.io/)
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Git Grapher</title>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.2.2/gitgraph.min.css">
+    <link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Slabo+13px'>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <header>
+        <h1>Git Grapher</h1>
+      </header>
+
+
+      <main>
+
+        <section id="controls" class="columns">
+          <!-- TODO: Finish Implementing -->
+          <div id="branchControls" class="column">
+
+            <div id="currentBranchWrapper">
+              <select id="currentBranch" class="name" placeholder="Current Branch">
+                <option disabled>Current Branch</option>
+                <option value="master" selected>master</option>
+              </select>
+              <button id="deleteBranchButton" class="negative">Delete Branch</button>
+            </div>
+
+            <div id="createBranchWrapper">
+              <input id="branchName" class="name" placeholder="Branch Name" type="text" />
+              <button id="createBranchButton">Branch</button>
+            </div>
+
+            <div id="createTagWrapper">
+              <input id="tagName" class="name" placeholder="Tag Name" type="text" />
+              <button id="createTag">Tag</button>
+            </div>
+
+          </div>
+
+          <div id="commitControls" class="column">
+            <input id="commitAuthor" placeholder="Commit Author" type="text" value="John Doe <john.doe@example.com>" />
+            <textarea id="commitMsg" placeholder="Commit Message"></textarea>
+            <button id="commitButton">Commit</button>
+          </div>
+
+        </section>
+
+
+        <section id="graph">
+          <canvas id="gitGraph"></canvas>
+        </section>
+
+      </main>
+
+    </div>
+  </body>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.2.2/gitgraph.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+
+</html>

@@ -1,0 +1,233 @@
+/*!
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2016 Brandon Sara (http://bsara.github.io/)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  box-sizing: border-box;
+}
+
+
+
+body {
+  color:      #111;
+  background: #efefef;
+}
+
+
+
+h1 {
+  margin:      0;
+  padding:     0;
+  font-family: 'Slabo 13px', serif;
+  font-size:   3.375rem; /* 2.25rem */
+  font-weight: 300;
+  text-align:  center;
+}
+
+
+button,
+select,
+input[type='text'] {
+  height:         1.75em;
+  vertical-align: middle;
+}
+
+
+button,
+select,
+textarea,
+input[type='text'] {
+  max-width: 100%;
+  font-size: 1.25em;
+}
+
+
+button {
+  width:         7.55em;
+  margin:        0;
+  padding:       0 0.60em;
+  background:    #34e67f; /* #34e67f; */
+  color:         #222;
+  border:        none;
+  border-radius: 3px;
+}
+
+button:hover {
+  cursor:     pointer;
+  background: #37f286; /* #37f286; */
+}
+
+button:active {
+  color:      #000;
+  background: #2ecc71;
+}
+
+button.negative {
+  color:      #fff;
+  background: #cd3033;
+}
+
+
+select,
+textarea,
+input[type='text'] {
+  margin:        0;
+  margin-right:  0.3125rem; /* 5px */
+  padding:       0.25em;
+  background:    #fff;
+  border:        0.0625rem solid #888; /* 1px */
+  border-radius: 3px;
+}
+
+textarea:active,
+input[type='text']:active {
+  border-color: #0af;
+}
+
+
+select,
+input[type='text'] {
+  padding: 0 0.25em;
+}
+
+
+
+.columns {
+  display: flex;
+}
+
+.column {
+  display: inline-block;
+  width:   50%;
+}
+
+.column:not(:first-child) {
+  padding-left: 0.5em;
+}
+
+.column:not(:last-child) {
+  padding-right: 0.5em;
+}
+
+
+.button-wrapper {
+  display: inline-block;
+}
+
+
+
+
+
+.gitgraph-tooltip {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.gitgraph-tooltip::after {
+  display: none;
+}
+
+
+
+
+#wrapper {
+  display:    block;
+  height:     100%;
+  max-width:  900px;
+  margin:     0 auto;
+}
+
+
+
+header,
+#controls {
+  margin:        1rem 0;
+  border-radius: 2px;
+}
+
+header {
+  margin-top:     1.5rem;
+  padding:        1rem;
+  color:          #fff;
+  background:     #0af;
+  box-shadow:     0 1px 5px rgba(0, 0, 0, 0.15);
+  vertical-align: middle;
+}
+
+
+
+#controls {
+  margin-bottom: 4rem;
+  padding:       0.75rem;
+  background:    #fff;
+  box-shadow:    0 2px 7px rgba(0, 0, 0, 0.15);
+}
+
+#controls input[type='text'] + textarea {
+  margin-top: 0.2em;
+}
+
+
+
+#branchControls > div:not(:first-child) {
+  margin-top: 1.17em;
+}
+
+#branchControls button {
+  float: right;
+}
+
+#branchControls .name {
+  display: inline-block;
+  width:   calc(100% - 7.55em - 0.5em); /* 7.55em = button length -- 0.5em = margin */
+}
+
+
+
+#commitControls {
+  text-align: right;
+}
+
+#commitControls button {
+  margin-top: 0.5em;
+}
+
+#commitControls select,
+#commitControls textarea,
+#commitControls input[type='text'] {
+  display: block;
+  width:   100%;
+}
+
+
+
+#graph {
+  text-align: center;
+}

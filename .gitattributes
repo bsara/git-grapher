@@ -1,0 +1,82 @@
+# Project
+
+*       text eol=lf
+
+
+# Documents
+
+*.doc   binary
+*.docx  binary
+*.dot   binary
+*.dotx  binary
+*.xls   binary
+*.xlsx  binary
+*.xlt   binary
+*.xltm  binary
+*.odb   binary
+*.odf   binary
+*.odg   binary
+*.odi   binary
+*.odp   binary
+*.ods   binary
+*.odt   binary
+*.otc   binary
+*.otg   binary
+*.oti   binary
+*.otp   binary
+*.ots   binary
+*.ott   binary
+*.pdf   binary
+*.ppt   binary
+*.pptx  binary
+*.ps    binary
+
+
+# Fonts
+
+*.eot   binary
+*.otf   binary
+*.ttc   binary
+*.ttf   binary
+*.woff  binary
+
+
+# Audio Visual
+
+*.fla   binary
+*.flv   binary
+*.mov   binary
+*.mp3   binary
+*.mp4   binary
+*.swf   binary
+
+
+# Images
+
+*.ai    binary
+*.bmp   binary
+*.gif   binary
+*.hqx   binary
+*.icns  binary
+*.ico   binary
+*.jpeg  binary
+*.jpg   binary
+*.png   binary
+*.psd   binary
+*.svg   text
+*.tif   binary
+*.tiff  binary
+
+
+# Archives
+
+*.7z    binary
+*.cab   binary
+*.ear   binary
+*.gz    binary
+*.jar   binary
+*.rar   binary
+*.tar   binary
+*.tgz   binary
+*.war   binary
+*.zip   binary
