@@ -1,7 +1,7 @@
 Git Grapher
 ==============================================================================
 
-An interactive git branching model & commit history graph generator.
+> An interactive git branching model & commit history graph generator.
 
 Special thanks to [Nicolas Carlo](http://www.nicoespeon.com/) for
 [GitGraph.js][gitgraphjs], this entire application is essentially a front end
