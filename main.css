@@ -51,6 +51,13 @@ h1 {
   text-align:  center;
 }
 
+h1 sup {
+  top:         -2rem;
+  margin-left: 0.25rem;
+  font-family: monospace;
+  font-size:   1rem;
+}
+
 
 button,
 select,
