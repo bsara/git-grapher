@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- MAGIC NUMBER: 60 = (pathWithCommitLength - overlapLength) + commitPointDiameter -->
+
+  <!--
+    Stroke Width:  4
+
+    Commit Point Radius:       8
+    Commit Point 1st (x, y):  (10, 10)
+    Commit Point Next x/y:    prevImmediatePointPos + 60
+
+    Path 1st (x, y):              (19, 10)
+    Path w/Commit Next (x, y):    prevImmediatePointPos + 60
+    Path w/Commit Length:         42
+    Path w/o Commit Next (x, y):  prevImmediatePointPos + 60
+    Path w/o Commit Length:       102 = 42 + 60
+  -->
+
+
+  <style type="text/css">
+    @font-face {
+      font-family: "Octicons";
+      src: url('https://npmcdn.com/octicons/build/font/octicons.eot');
+      src: url('https://npmcdn.com/octicons/build/font/octicons.eot?#iefix')   format('embedded-opentype'),
+           url('https://npmcdn.com/octicons/build/font/octicons.svg#octicons') format('svg'),
+           url('https://npmcdn.com/octicons/build/font/octicons.woff')         format('woff'),
+           url('https://npmcdn.com/octicons/build/font/octicons.ttf')          format('truetype');
+      font-weight: normal;
+      font-style:  normal;
+    }
+
+
+    path {
+      fill: none;
+    }
+
+
+    circle {
+      fill: #fff;
+    }
+
+
+    .tagged {
+      fill: #f1c40f;
+    }
+
+
+    .branch-master {
+      stroke: #07f;
+    }
+
+
+    .branch-branch0 {
+      stroke: #2ecc71
+    }
+  </style>
+
+
+  <g stroke-width="4">
+
+    <g id="branch0" class="branch-branch0">
+      <g>
+        <path d="m 79,10  c 21,0 21,-56 42,-56  q 0,0 60,0" /> <!-- 21 = (pathWithCommitLength / 2) --> <!-- -56 Moves it all up by 60...which is the length from end to end of one commit to another -->
+        <circle r="8" cx="190" cy="-46" />
+      </g>
+      <g>
+        <path d="m 199,-46  h 102" />
+        <circle class="tagged" r="8" cx="310" cy="-46" />
+      </g>
+    </g>
+
+
+    <g id="master" class="branch-master">
+      <g>
+        <circle r="8" cx="10" cy="10" />
+      </g>
+      <g>
+        <path d="m 19,10  h 42" />
+        <circle r="8" cx="70" cy="10" />
+      </g>
+      <g>
+        <path d="m 79,10  h 42" />
+        <circle r="8" cx="130" cy="10" />
+      </g>
+      <g>
+        <g class="branch-branch0">
+         <path d="m 199,-46  c 21,0 21,56 42, 56" />
+        </g>
+        <g>
+          <path d="m 139,10  h 102" />
+          <circle r="8" cx="250" cy="10" />
+        <g>
+      </g>
+      <g>
+        <g class="branch-branch0">
+          <path d="m 319,-46  c 21,0 21,56 42, 56" />
+        </g>
+        <g>
+          <path d="m 259,10  h 102" />
+          <circle r="8" cx="370" cy="10" />
+        </g>
+      </g>
+    </g>
+
+  </g>
+
+</svg>
