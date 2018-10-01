@@ -43,7 +43,10 @@
     $_commitMsg     = document.querySelector('#commitMsg');
     $_currentBranch = document.querySelector('#currentBranch');
     $_tagName       = document.querySelector('#tagName');
+    $_mergeTarget   = document.querySelector('#mergeTargetBranch');
 
+    const defaultCommitMessage = 'This is an automated commit message.';
+    const mergeTargetsHint = '<option disabled>Branch to merge</option>';
 
     _config = {
       author:      $_commitAuthor.value,
@@ -79,45 +82,52 @@
     };
 
     _graph = new GitGraph(_config);
-
-
     _branch(_graph, 'master');
     _commit(_branches.master, "Initial commit");
     _commit(_branches.master, "Second commit");
 
-
     document.querySelector('#currentBranch option[value="master"]')._branch = _graph.branches[0];
-
-
 
     $_currentBranch.addEventListener('change', () => {
       $_currentBranch.selectedOptions[0]._branch.checkout();
+
+      const selectedBranchName = $_currentBranch.selectedOptions[0]._branch.name;
+      const possibleMergeTargets = _graph.branches.filter((branch) => {return branch.name !== selectedBranchName});
+      $_mergeTarget.innerHTML = mergeTargetsHint;
+      possibleMergeTargets.forEach((branch) => {
+        $_mergeTarget.appendChild(_createBranchOption(branch));
+      });
     });
 
 
     document.querySelector('#createBranchButton').addEventListener('click', () => {
-      let branch = _branch(_graph, $_branchName.value);
-
+      const newBranch = _branch(_graph, $_branchName.value);
       $_branchName.value = '';
 
-      let $branchOption       = document.createElement('option');
-      $branchOption._branch   = branch;
-      $branchOption.value     = branch.name;
-      $branchOption.innerText = branch.name;
-
-      $_currentBranch.appendChild($branchOption);
-      $_currentBranch.value = branch.name;
+      $_currentBranch.appendChild(_createBranchOption(newBranch));
+      $_currentBranch.value = newBranch.name;
+      
+      const possibleMergeTargets = _graph.branches.filter((branch) => {return branch.name !== newBranch.name});
+      $_mergeTarget.innerHTML = mergeTargetsHint;
+      possibleMergeTargets.forEach((branch) => {
+        $_mergeTarget.appendChild(_createBranchOption(branch));
+      });
     });
 
+    document.querySelector('#mergeButton').addEventListener('click', () => {
+      const sourceBranch = _graph.branches.filter((branch) => {return branch.name === $_mergeTarget.value})[0];
+      const targetBranch = _graph.branches.filter((branch) => {return branch.name === $_currentBranch.value})[0];
+      if(sourceBranch === undefined || targetBranch === undefined){
+        return;
+      }
+      sourceBranch.merge(targetBranch, ($_commitMsg.value || defaultCommitMessage));
+    });
 
     document.querySelector('#commitButton').addEventListener('click', () => {
-      _commit(_graph, $_commitMsg.value, $_commitAuthor.value);
+      _commit(_graph, ($_commitMsg.value || defaultCommitMessage), $_commitAuthor.value);
       $_commitMsg.value = '';
     });
   });
-
-
-
 
   function _branch(parentBranch, name) {
     if (Object.keys(_branches).includes(name)) {
@@ -134,26 +144,17 @@
     return branch.delete();
   }
 
-
   function _commit(branch, message, author) {
     return branch.commit({
-      message: (message || "*no message*"),
+      message: message,
       author,
       onClick: _onClickCommit
     });
   }
 
-
-  function _merge(fromBranch, toBranch, message) {
-    return fromBranch.merge(toBranch, (message ? { message } : undefined));
-  }
-
-
   function _tag(commit) {
     // TODO: Implement
   }
-
-
 
   function _onClickCommit(commit) {
     // TODO: Implement
@@ -165,4 +166,13 @@
     console.log('hit _onClickBranch!');
   }
 
+  function _createBranchOption(branch) {
+    const $branchOption = document.createElement('option');
+    $branchOption._branch = branch;
+    $branchOption.value = branch.name;
+    $branchOption.innerText = branch.name;
+    return $branchOption;
+  }
+
 })();
+

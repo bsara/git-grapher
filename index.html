@@ -50,7 +50,6 @@
       <main>
 
         <section id="controls" class="columns">
-          <!-- TODO: Finish Implementing -->
           <div id="branchControls" class="column">
 
             <div id="currentBranchWrapper">
@@ -64,6 +63,13 @@
             <div id="createBranchWrapper">
               <input id="branchName" class="name" placeholder="Branch Name" type="text" />
               <button id="createBranchButton">Branch</button>
+            </div>
+
+            <div>
+              <select id="mergeTargetBranch" class="name">
+                <option disabled>Branch to merge</option>
+              </select>
+              <button id="mergeButton">Merge</button>
             </div>
 
             <div id="createTagWrapper">
@@ -91,7 +97,7 @@
     </div>
   </body>
 
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.2.2/gitgraph.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.2.2/gitgraph.min.js"></script>
   <script type="text/javascript" src="main.js"></script>
 
 </html>
