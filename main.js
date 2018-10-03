@@ -55,8 +55,8 @@
 
       template: {
         colors: [
-          "#07f",
-          "#2ecc71"
+          "#07f", "#2ecc71", "#fe4a49", "#fed766", "#af42ae",
+          "#af9164", "#32292f", "#cb8589", "#cbc5ea"
         ],
         branch: {
           lineWidth: 10,
@@ -101,9 +101,11 @@
 
 
     document.querySelector('#createBranchButton').addEventListener('click', () => {
+      if($_branchName.value === ''){
+        return;
+      }
       const newBranch = _branch(_graph, $_branchName.value);
       $_branchName.value = '';
-
       $_currentBranch.appendChild(_createBranchOption(newBranch));
       $_currentBranch.value = newBranch.name;
       
