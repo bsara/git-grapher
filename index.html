@@ -27,77 +27,75 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <title>Git Grapher</title>
+  <title>Git Grapher</title>
 
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.2.2/gitgraph.min.css">
-    <link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Slabo+13px'>
-    <link rel="stylesheet" type="text/css" href="main.css">
-  </head>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.2.2/gitgraph.min.css">
+  <link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Slabo+13px'>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
 
-  <body>
-    <div id="wrapper">
+<body>
+  <div id="wrapper">
 
-      <header>
-        <h1>Git Grapher<sup>alpha</sup></h1>
-      </header>
+    <header>
+      <h1>Git Grapher<sup>alpha</sup></h1>
+    </header>
 
 
-      <main>
-
-        <section id="controls" class="columns">
-          <div id="branchControls" class="column">
-
-            <div id="currentBranchWrapper">
-              <select id="currentBranch" class="name" placeholder="Current Branch">
-                <option disabled>Current Branch</option>
-                <option value="master" selected>master</option>
-              </select>
-              <button id="deleteBranchButton" class="negative">Delete Branch</button>
-            </div>
-
-            <div id="createBranchWrapper">
-              <input id="branchName" class="name" placeholder="Branch Name" type="text" />
-              <button id="createBranchButton">Branch</button>
-            </div>
-
-            <div>
-              <select id="mergeTargetBranch" class="name">
-                <option disabled>Branch to merge</option>
-              </select>
-              <button id="mergeButton">Merge</button>
-            </div>
-
-            <div id="createTagWrapper">
-              <input id="tagName" class="name" placeholder="Tag Name" type="text" />
-              <button id="createTag">Tag</button>
-            </div>
-
+    <main>
+      <section id="controls" class="columns">
+        <div id="branchControls" class="column">
+          <div id="currentBranchWrapper">
+            <select id="currentBranch" class="name" placeholder="Current Branch">
+              <option disabled>Current Branch</option>
+              <option value="master" selected>master</option>
+            </select>
+            <button id="deleteBranchButton" class="negative">Delete</button>
           </div>
 
-          <div id="commitControls" class="column">
-            <input id="commitAuthor" placeholder="Commit Author" type="text" value="John Doe <john.doe@example.com>" />
-            <textarea id="commitMsg" placeholder="Commit Message"></textarea>
-            <button id="commitButton">Commit</button>
+          <div id="createBranchWrapper">
+            <input id="branchName" class="name" placeholder="Branch Name" type="text" />
+            <button id="createBranchButton">Branch</button>
           </div>
 
-        </section>
+          <div>
+            <select id="mergeTargetBranch" class="name">
+              <option disabled>Branch to merge</option>
+            </select>
+            <button id="mergeButton">Merge</button>
+          </div>
+
+          <div id="createTagWrapper">
+            <input id="tagName" class="name" placeholder="Tag" type="text" />
+            <button id="createTag">Tag HEAD</button>
+          </div>
+
+        </div>
+
+        <div id="commitControls" class="column">
+          <input id="commitAuthor" placeholder="Commit Author" type="text" value="John Doe <john.doe@example.com>" />
+          <textarea id="commitMsg" placeholder="Commit Message"></textarea>
+          <button id="commitButton">Commit</button>
+        </div>
+
+      </section>
 
 
-        <section id="graph">
-          <canvas id="gitGraph"></canvas>
-        </section>
+      <section id="graph">
+        <canvas id="gitGraph"></canvas>
+      </section>
 
-      </main>
+    </main>
 
-    </div>
-  </body>
+  </div>
+</body>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.2.2/gitgraph.min.js"></script>
-  <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.13.0/gitgraph.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
 
 </html>

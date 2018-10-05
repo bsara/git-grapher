@@ -70,7 +70,7 @@
             strokeWidth: 10
           },
           message: {
-            displayAuthor: true,
+            displayAuthor: false,
             displayBranch: true,
             displayHash:   true,
             font:          'normal 12pt sans'
@@ -127,7 +127,13 @@
       _commit(_graph, ($_commitMsg.value || defaultCommitMessage), $_commitAuthor.value);
       $_commitMsg.value = '';
     });
+
+    document.querySelector('#createTag').addEventListener('click', () => {
+      _graph.tag($_tagName.value);
+    });
+    
   });
+
 
   function _branch(parentBranch, name) {
     if (Object.keys(_branches).includes(name)) {
@@ -138,7 +144,6 @@
 
     return _branches[name];
   }
-
 
   function _endBranch(branch) {
     return branch.delete();
@@ -152,14 +157,9 @@
     });
   }
 
-  function _tag(commit) {
-    // TODO: Implement
-  }
-
   function _onClickCommit(commit) {
     // TODO: Implement
   }
-
 
   function _onClickBranch(branch) {
     // TODO: Implement
@@ -173,6 +173,5 @@
     $branchOption.innerText = branch.name;
     return $branchOption;
   }
-
 })();
 
